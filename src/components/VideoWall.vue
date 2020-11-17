@@ -1,16 +1,14 @@
 <template>
   <section data-name="A01Reactive">
-    <button @click="increment">
+    <!-- <button @click="increment">
       Count is: {{ state.count }}, double is: {{ state.double }}
-    </button>
+    </button> -->
 
-    <button @click="add">
-      MyCount is: {{ myCount }}
-    </button>
+    <button @click="fetchVideoList">Fetch</button>
+    <div v-for="{id} in allVideoList" :key="id">
+        <p>{{id}}</p>
+    </div>
 
-    <button @click="add">
-      MyCount is: {{ myCount }}
-    </button>
   </section>
 </template>
 
