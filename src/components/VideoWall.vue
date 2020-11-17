@@ -3,11 +3,20 @@
     <button @click="increment">
       Count is: {{ state.count }}, double is: {{ state.double }}
     </button>
+
+    <button @click="add">
+      MyCount is: {{ myCount }}
+    </button>
+
+    <button @click="add">
+      MyCount is: {{ myCount }}
+    </button>
   </section>
 </template>
 
 <script lang="ts">
 import { defineComponent, reactive, computed } from 'vue'
+import { videoSetup } from './composition/videoSetup'
 
 interface MyNum {
   count: number,
@@ -28,7 +37,8 @@ export default defineComponent({
 
     return {
       state,
-      increment
+      increment,
+      ...videoSetup()
     }
   }
 })
