@@ -6,8 +6,9 @@ Use Vue3 + typescript + composition api + Youtube video-API to make a basic RWD 
 
 ### How
 
->\$ npm install
->\$ npm run serve
+>$ npm install
+
+>$ npm run serve
 
 ### Set youtube API-key
 
