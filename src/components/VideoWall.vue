@@ -4,9 +4,19 @@
       Count is: {{ state.count }}, double is: {{ state.double }}
     </button> -->
 
-    <button @click="fetchVideoList">Fetch</button>
-    <div v-for="{id} in allVideoList" :key="id">
-        <p>{{id}}</p>
+    <button @click="fetchVideoList" class="btn btn-primary">Fetch</button>
+
+    <div v-for="(oneVideo, vidx) in getAllVideo" :key="`v${oneVideo.id}`" class="video-box">
+        <div class="v_pic" :style="{background: `url(${oneVideo.pic})`}">
+            <span class="pic_duration">{{oneVideo.duration}}</span>
+        </div>
+        <div class="v_detail">
+            <div class="detail_des">{{oneVideo.title}}</div>
+            <div class="detail_des">{{oneVideo.description}}</div>
+            <div class="detail_favo">
+                <i class="far fa-heart"/>
+            </div>
+        </div>
     </div>
 
   </section>

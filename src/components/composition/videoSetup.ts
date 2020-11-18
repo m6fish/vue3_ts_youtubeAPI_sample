@@ -23,8 +23,7 @@ export const videoSetup = () => {
      */
 
     // 原始影片列表
-    const allVideoList = computed(() => {
-        console.log(videoList.value)
+    const getAllVideo = computed(() => {
         return videoList.value
     });
 
@@ -125,7 +124,7 @@ export const videoSetup = () => {
     }
 
   return {
-    allVideoList,
+    getAllVideo,
     fetchVideoList,
     fetchNextVideo
   }
