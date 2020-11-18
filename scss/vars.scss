@@ -1,0 +1,19 @@
+$primary: #28a745;
+
+$gutters: (
+  0: 0,
+  1: $spacer * .25,
+  2: $spacer * .5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 5,
+);
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 360px,
+  md: 650px,
+  lg: 768px,
+  xl: 1200px,
+  xxl: 1400px
+);

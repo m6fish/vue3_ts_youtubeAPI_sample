@@ -24,6 +24,10 @@
 $hoverColor: red;
 
 #video-wall{
+    h1 {
+        font-size: 2.5rem;
+    }
+
     .v_pic, .v_detail {
         width: 320px;
         margin: 0 auto;

@@ -1,17 +1,11 @@
-$primary: #28a745;
 
-// Required
-@import "../node_modules/bootstrap/scss/functions";
-@import "../node_modules/bootstrap/scss/variables";
-@import "../node_modules/bootstrap/scss/mixins";
-
-@import "../node_modules/bootstrap/scss/grid";
-
+// Custom
 .btn-primary:focus,
 .btn-primary:active {
   box-shadow: none;
   outline: 0px;
 }
+
 
 #video-wall {
     @include media-breakpoint-up(sm) {
@@ -26,6 +20,12 @@ $primary: #28a745;
             @include make-col(12);
         }
         @include media-breakpoint-up(sm) {
+            @include make-col(12);
+        }
+        @include media-breakpoint-up(lg) {
+            @include make-col(12);
+        }
+        @include media-breakpoint-up(md) {
             @include make-col(6);
         }
         @include media-breakpoint-up(xl) {
