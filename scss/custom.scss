@@ -1,0 +1,9 @@
+$primary: #28a745;
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+.btn-primary:focus,
+.btn-primary:active {
+  box-shadow: none;
+  outline: 0px;
+}
