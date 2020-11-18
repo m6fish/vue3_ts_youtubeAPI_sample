@@ -24,10 +24,9 @@
 $hoverColor: red;
 
 #video-wall{
-    padding: 0 5%;
-
     .v_pic, .v_detail {
         width: 320px;
+        margin: 0 auto;
     }
 
     .v_pic {

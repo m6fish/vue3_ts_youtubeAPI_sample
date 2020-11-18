@@ -1,9 +1,38 @@
 $primary: #28a745;
 
-@import "../node_modules/bootstrap/scss/bootstrap";
+// Required
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+
+@import "../node_modules/bootstrap/scss/grid";
 
 .btn-primary:focus,
 .btn-primary:active {
   box-shadow: none;
   outline: 0px;
+}
+
+#video-wall {
+    @include media-breakpoint-up(sm) {
+        padding: 0;
+    }
+    @include media-breakpoint-up(xs) {
+        padding: 0;
+    }
+
+    .video-box{
+        @include media-breakpoint-up(xs) {
+            @include make-col(12);
+        }
+        @include media-breakpoint-up(sm) {
+            @include make-col(6);
+        }
+        @include media-breakpoint-up(xl) {
+            @include make-col(4);
+        }
+        @include media-breakpoint-up(xxl) {
+            @include make-col(3);
+        }
+    }
 }
