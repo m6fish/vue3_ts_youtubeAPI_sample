@@ -2,7 +2,6 @@ import { ref, computed } from 'vue'
 import Axios from 'axios'
 
 export const videoSetup = () => {
-
     /**
      * --------------------------------------
      * Reactive data
@@ -10,11 +9,10 @@ export const videoSetup = () => {
      */
 
     // 影片原始資料
-    let videoList = ref<Array<{}>>([])
+    const videoList = ref<Array<{}>>([])
 
     // 影片nextToken
-    let nextToken = ref('')
-
+    const nextToken = ref('')
 
     /**
      * --------------------------------------
@@ -25,9 +23,9 @@ export const videoSetup = () => {
     // 原始影片列表
     const getAllVideo = computed(() => {
         return videoList.value
-    });
+    })
 
-     /**
+    /**
      * --------------------------------------
      * Methods
      * --------------------------------------
@@ -37,7 +35,6 @@ export const videoSetup = () => {
      * 打影片API取得結果
      */
     async function fetchVideo (mode: number) {
-
         const VIDEO_KEY: string = process.env.VUE_APP_VIDEO_KEY
         const url: string = 'https://www.googleapis.com/youtube/v3/videos'
         const params = {
@@ -46,11 +43,8 @@ export const videoSetup = () => {
             chart: 'mostPopular',
             hl: 'zh-TW',
             regionCode: 'TW',
-            maxResults: 20
-        }
-
-        if (mode === 2) {
-            nextToken.value = nextToken.value
+            maxResults: 20,
+            pageToken: mode === 2 ? nextToken.value : undefined
         }
 
         const res: any = await Axios.get(url, { params }).catch(err => {
@@ -58,7 +52,7 @@ export const videoSetup = () => {
             return false
         })
 
-        const {status: returnState} = res
+        const { status: returnState } = res
         if (+returnState !== 200) {
             return false
         }
@@ -67,7 +61,7 @@ export const videoSetup = () => {
     }
 
     // 把影片資料格式化成顯示用資料
-    function formatData(items: Array<{id: string, contentDetails: any, snippet: any}>) {
+    function formatData (items: Array<{id: string, contentDetails: any, snippet: any}>) {
         const STR_LESS = 100
 
         return items.map(({ id = '', contentDetails, snippet }) => {
@@ -120,12 +114,12 @@ export const videoSetup = () => {
         nextToken.value = nextPageToken
         // 設定allVideo
         const theFormatData = formatData(JSON.parse(JSON.stringify(items)))
-        videoList.value =  [...videoList.value, ...theFormatData]
+        videoList.value = [...videoList.value, ...theFormatData]
     }
 
-  return {
-    getAllVideo,
-    fetchVideoList,
-    fetchNextVideo
-  }
+    return {
+        getAllVideo,
+        fetchVideoList,
+        fetchNextVideo
+    }
 }
