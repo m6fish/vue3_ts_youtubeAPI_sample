@@ -1,19 +1,17 @@
-# vue3-v3
+# vue3_ts_youtubeAPI_sample
 
-## Project setup
-```
-npm install
-```
+Use Vue3 + typescript + composition api + Youtube video-API to make a basic RWD project.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+---
 
-### Compiles and minifies for production
-```
-npm run build
-```
+### How
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+>\$ npm install
+>\$ npm run serve
+
+### Set youtube API-key
+
+provide an .env file
+
+> VUE_APP_VIDEO_KEY={$your_key}
+
