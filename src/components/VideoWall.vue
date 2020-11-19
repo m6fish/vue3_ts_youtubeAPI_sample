@@ -89,11 +89,21 @@ $hoverColor: red;
 </style>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, onBeforeMount } from 'vue'
 import { videoSetup } from './composition/videoSetup'
 
 export default defineComponent({
     name: 'VideoWall',
-    setup: videoSetup
+    setup () {
+        const func = videoSetup()
+
+        onBeforeMount(() => {
+            func.fetchVideoList()
+        })
+
+        return {
+            ...func
+        }
+    }
 })
 </script>

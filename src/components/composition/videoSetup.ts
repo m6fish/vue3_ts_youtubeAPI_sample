@@ -1,4 +1,4 @@
-import { ref, computed, onBeforeMount } from 'vue'
+import { ref, computed } from 'vue'
 import Axios from 'axios'
 
 /**
@@ -116,13 +116,6 @@ export const videoSetup = () => {
         const theFormatData = formatData(JSON.parse(JSON.stringify(items)))
         videoList.value = [...videoList.value, ...theFormatData]
     }
-
-    /**
-    * before mount
-    */
-    onBeforeMount(() => {
-        fetchVideoList()
-    })
 
     return {
         getAllVideo,
