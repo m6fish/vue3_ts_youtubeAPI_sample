@@ -1,19 +1,19 @@
 import { ref, computed, onBeforeMount } from 'vue'
 import Axios from 'axios'
 
+/**
+ * --------------------------------------
+ * Reactive data
+ * --------------------------------------
+ */
+
+// 影片原始資料
+const videoList = ref<Array<{}>>([])
+
+// 影片nextToken
+const nextToken = ref('')
+
 export const videoSetup = () => {
-    /**
-     * --------------------------------------
-     * Reactive data
-     * --------------------------------------
-     */
-
-    // 影片原始資料
-    const videoList = ref<Array<{}>>([])
-
-    // 影片nextToken
-    const nextToken = ref('')
-
     /**
      * --------------------------------------
      * Computed
