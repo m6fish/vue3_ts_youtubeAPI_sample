@@ -2,7 +2,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 
 module.exports = {
     lintOnSave: true,
-    publicPath: '/',
+    publicPath: './',
     productionSourceMap: false,
     configureWebpack: {
         plugins: [
