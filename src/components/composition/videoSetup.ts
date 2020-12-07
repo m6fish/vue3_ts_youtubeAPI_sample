@@ -8,7 +8,7 @@ import Axios from 'axios'
  */
 
 // 影片原始資料
-const videoList = ref<Array<{}>>([])
+const videoList = ref<any[]>([])
 
 // 影片nextToken
 const nextToken = ref('')
@@ -60,8 +60,14 @@ export const videoSetup = () => {
         return res
     }
 
+    type apiData = {
+        id: string,
+        contentDetails: any,
+        snippet: any
+    }
+
     // 把影片資料格式化成顯示用資料
-    function formatData (items: Array<{id: string, contentDetails: any, snippet: any}>) {
+    function formatData (items: Array<apiData>) {
         const STR_LESS = 100
 
         return items.map(({ id = '', contentDetails, snippet }) => {
@@ -104,7 +110,7 @@ export const videoSetup = () => {
             return false
         }
 
-        const res: any = await fetchVideo(2)
+        const res = await fetchVideo(2)
         if (!res) {
             return false
         }
